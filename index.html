@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p> Take a look at the JS console! </p>
+    <script>
+
+        const people = [
+            { name: "Wes", year: 1988 },
+            { name: "Kait", year: 1986 },
+            { name: "Irv", year: 1970 },
+            { name: "Lux", year: 2015}
+        ];
+
+        const comments = [
+            { text: "Love this!", id: 523423 },
+            { text: "Super good", id: 823423 },
+            { text: "You are the best", id: 2039842 },
+            { text: "Ramen in my fav food ever", id: 123523 },
+            { text: "Nice Nice Nice!", id: 542328 }
+        ];
+    
+        // 'some()' Array Method - at least one element would possess the attribute
+        // Example: at least one person is 19
+        const somePeople = people.some(element => 2019 - Number(element.year) >= 19)
+
+        console.log(somePeople);
+
+        // 'every()' Array Method - every element has to possess the attribute
+        // Example: make sure everyone is 19
+        const everyPeople = people.every(element => 2019 - Number(element.year) >= 19)
+
+        console.log(everyPeople);
+
+        // 'find()' Array Method - similar to the filter method but instead it returns just the one you're looking for
+        // Example: find the comment with the ID of 823423
+        const findComment = comments.find(element => element.id === 823423);
+
+        console.table(findComment);
+
+        // 'findIndex()' Array Method - find comment with ID
+        // Example: delete the comment with the ID of 823423
+
+        const findId = comments.findIndex(element => element.id === 823423)
+
+        console.log(findId);
+
+        // don't forget to use the spread operator to combine arrays in a more succinct manner
+        const newComments = [
+            ...comments.slice(0, findId),
+            ...comments.slice(findId + 1)
+        ]
+
+        console.table(newComments);
+    </script>
+</body>
+</html>
